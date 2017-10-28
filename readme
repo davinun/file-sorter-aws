@@ -6,6 +6,16 @@ Todo:
 - SQS Writer
 - SQS Reader
 
+- create SNS and SQS on the fly
+
+Limitations and Points to Improve
+----------------------------------
+- Only one sort can run at any time. In order to support multiple sorts --> create SQS and SNS on the fly and delete them at the end.
+- Delete temporary files
+- The Merge-Consumer Lambda runs for as long as the whole sorting process runs - most of the time waiting on the queue of files to sort.
+- Break MyFileLambda to separate classes and possibly separate modules with minimum dependency
+- Make things more configurable in general
+
 Ponder:
 --------
 File format - a binary DataStream in the format double,double,double,...
@@ -16,7 +26,7 @@ char = 2 bytes
 1GB file ==> 1,000 million bytes ==> 100,000,000 numbers in the file
 
 Use SNS to invoke the Lambda
-SQS - using polling only - cannot invode Lambda
+SQS - using polling only - cannot invoke Lambda
 
 
 
