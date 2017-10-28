@@ -1,0 +1,27 @@
+Todo:
+-------
+--> S3 File generator and Range reader
+--> API Gateway + Lambda to generate the file
+- Lambda S3 Splitter
+- SQS Writer
+- SQS Reader
+
+Ponder:
+--------
+File format - a binary DataStream in the format double,double,double,...
+
+double = 8 bytes
+char = 2 bytes
+
+1GB file ==> 1,000 million bytes ==> 100,000,000 numbers in the file
+
+Use SNS to invoke the Lambda
+SQS - using polling only - cannot invode Lambda
+
+
+
+Links:
+-------
+http://pages.cs.wisc.edu/~dbbook/openAccess/firstEdition/slides/pdfslides/mod2l6.pdf
+http://www.geeksforgeeks.org/external-sorting/
+https://www.youtube.com/watch?v=ATK74YSzwxg
